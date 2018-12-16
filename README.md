@@ -8,19 +8,19 @@ This year I'm doing it mostly in a language I created myself: Nail! Compiler and
 This repo is a cargo project for convenience of running the Rust solutions. E.g. `cargo run --example d9`
 
 Status:
-* d1: Nail
-* d2: Nail
-* d3: Nail
-* d4: Need to redo
-* d5: Nail
-* d6: Nail
-* d7: Nail
-* d8: Nail
-* d9: Nail (Part 1 only), Rust (both parts)
-* d10: Need to redo
-* d11: Nail
-* d12: Nail (Part 1 only, originally did Part 2 by hand, need to code properly)
-* d13: Rust
-* d14: Nail (Part 2 is slow)
-* d15: Rust
-* d16: Rust
+* d1: Nail✅
+* d2: Nail✅
+* d3: Nail✅
+* d4: Need to redo❌
+* d5: Nail✅
+* d6: Nail✅
+* d7: Nail✅
+* d8: Nail✅
+* d9: Nail (Part 1 only)⚠️, Rust (both parts)✅
+* d10: Need to redo❌
+* d11: Nail✅
+* d12: Nail (Part 1 only, originally did Part 2 by hand, need to code properly)⚠️
+* d13: Rust✅
+* d14: Nail (Part 2 is slow)⚠️
+* d15: Rust✅
+* d16: Rust✅
