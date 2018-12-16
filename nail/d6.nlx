@@ -1,0 +1,55 @@
+fn main() {
+    let minX = 99999;
+    let minY = 99999;
+    let maxX = 0;
+    let maxY = 0;
+    let coords = [];
+    let input = "input/d6input.txt":readFile():split("\n");
+    let re = "([0-9]*), ([0-9]*)":regex();
+    for _, line in input {
+        if line:len() == 0 {continue;}
+        let match = re:match(line);
+        let c = [match[1]:parseNumber(), match[2]:parseNumber()];
+        if c[0] < minX {minX = c[0];}
+        if c[0] > maxX {maxX = c[0];}
+        if c[1] < minY {minY = c[1];}
+        if c[1] > maxY {maxY = c[1];}
+        coords:push(c);
+    }
+    let inf = #{};
+    let areas = #{};
+    let total_area = 0;
+    for x in minX..maxX+1 {
+        for y in minY..maxY+1 {
+            let min_dist = 99999999;
+            let min_c = nil;
+            let total_dist = 0;
+            for _, c in coords {
+                let dist = (x - c[0]):abs() + (y - c[1]):abs();
+                total_dist += dist;
+                if dist < min_dist {
+                    min_dist = dist;
+                    min_c = c;
+                } else if dist == min_dist {
+                    min_c = "tie"
+                }
+            }
+            if !areas[min_c] {areas[min_c] = 0;}
+            areas[min_c] += 1;
+            if x == minX || x == maxX || y == minY || y == maxY {
+                inf[min_c] = true;
+            }
+            if total_dist < 10000 {
+                total_area += 1;
+            }
+        }
+    }
+    let max_area = 0;
+    for k, v in areas {
+        if k != "tie" && !inf[k] && v > max_area {
+            max_area = v;
+        }
+    }
+    print "Part 1: " + max_area:to_string();
+    print "Part 2: " + total_area:to_string();
+}
