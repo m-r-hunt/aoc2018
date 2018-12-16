@@ -1,5 +1,7 @@
 # aoc2018
-My solutions for Advent of Code 2018. [Last year I did Advent of Code in Go.](https://github.com/m-r-hunt/aoc2017)
+My solutions for [Advent of Code 2018.](https://adventofcode.com/2018/) 
+
+[Last year I did Advent of Code in Go.](https://github.com/m-r-hunt/aoc2017)
 
 This year I'm doing it mostly in a language I created myself: Nail! Compiler and VM coming soon (hopefully). Some days I did in Rust (mostly when it was very convoluted and I wanted static types to help me).
 
