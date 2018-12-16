@@ -107,6 +107,7 @@ fn main() {
                     });
                     Track::Straight
                 }
+                '\r' => continue,
                 _ => {
                     println!("{}", c);
                     panic!("Bad track")
