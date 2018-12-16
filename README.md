@@ -17,7 +17,7 @@ Status:
 * d9: Nail (part 1 only), Rust (both parts)
 * d10: Need to redo
 * d11: Nail
-* d12: Nail
+* d12: Nail (Part 1 only, originally did Part 2 by hand, need to code properly)
 * d13: Rust
 * d14: Nail (Part 2 is slow)
 * d15: Rust
