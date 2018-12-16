@@ -3,7 +3,7 @@ My solutions for [Advent of Code 2018.](https://adventofcode.com/2018/)
 
 [Last year I did Advent of Code in Go.](https://github.com/m-r-hunt/aoc2017)
 
-This year I'm doing it mostly in a language I created myself: Nail! Compiler and VM coming soon (hopefully). Not that Nail is very much in development, I put in some hacks to get it ready for AOC2018 and I need to make some changes to the language syntax.
+This year I'm doing it mostly in a language I created myself: Nail! Compiler and VM coming soon (hopefully). Note that Nail is very much in development, I put in some hacks to get it ready for AOC2018 and I need to make some changes to the language syntax.
 
 Some days I did in Rust (mostly when it was very convoluted and I wanted static types to help me).
 
