@@ -15,7 +15,7 @@ Status:
 * d7: Nail
 * d8: Nail
 * d9: Nail (part 1 only), Rust (both parts)
-* d10: Rust
+* d10: Need to redo
 * d11: Nail
 * d12: Nail
 * d13: Rust
