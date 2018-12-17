@@ -38,11 +38,15 @@ fn run_game(marbles: u64) -> u64 {
         m += 1;
     }
     let mut max_score = 0;
-    for s in player_scores { if s > max_score {max_score = s;} }
+    for s in player_scores {
+        if s > max_score {
+            max_score = s;
+        }
+    }
     return max_score;
 }
 
 fn main() {
     println!("Part1: {}", run_game(MARBLES));
-    println!("Part2: {}", run_game(MARBLES*100));
+    println!("Part2: {}", run_game(MARBLES * 100));
 }
