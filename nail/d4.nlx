@@ -1,0 +1,67 @@
+fn main() {
+    let input = "input/d4input.txt":readFile():split("\n");
+    input:sort();
+    let id_re = "Guard #(\\d*)":regex();
+    let min_re = ":(\\d*)":regex();
+    let guards = #{};
+    let cur_guard;
+    let last_time;
+    for _, l in input {
+        if l:len() == 0 { continue; }
+        if id_re:match(l) {
+            let matches = id_re:match(l);
+            cur_guard = matches[1]:parseNumber();
+            if !guards[cur_guard] {
+                guards[cur_guard] = #{};
+                guards[cur_guard]["total"] = 0;
+            }
+            last_time = nil;
+        } else {
+            let minute = min_re:match(l)[1]:parseNumber();
+            if !last_time {
+                last_time = minute;
+            } else {
+                for m in last_time..minute {
+                    if !guards[cur_guard][m] {
+                        guards[cur_guard][m] = 0;
+                    }
+                    guards[cur_guard][m] += 1;
+                    guards[cur_guard]["total"] += 1;
+                }
+                last_time = nil;
+            }
+        }
+    }
+
+    let max_sleep = 0;
+    let max_id;
+    for id, times in guards {
+        if times["total"] > max_sleep {
+            max_sleep = times["total"];
+            max_id = id;
+        }
+    }
+    let most_sleep = 0;
+    let best_min;
+    for m,total in guards[max_id] {
+        if m != "total" && total > most_sleep {
+            most_sleep = total;
+            best_min = m;
+        }
+    }
+    print "Part 1: " + (best_min * max_id):to_string();
+
+    let most_min = 0;
+    let most_id;
+    let most_most_min;
+    for id, g in guards {
+        for min, time in g {
+            if min != "total" && time > most_min {
+                most_min = time;
+                most_most_min = min;
+                most_id = id;
+            }
+        }
+    }
+    print "Part 2: " +  (most_id * most_most_min):to_string();
+}
