@@ -40,8 +40,9 @@ fn dump(lights: &mut Vec<Light>, min_x: i32, max_x: i32, min_y: i32, max_y: i32)
 }
 
 fn main() {
-    let re = Regex::new("position=< ?(-?[0-9]*),  ?(-?[0-9]*)> velocity=< ?(-?[0-9]*),  ?(-?[0-9]*)>")
-        .unwrap();
+    let re =
+        Regex::new("position=< ?(-?[0-9]*),  ?(-?[0-9]*)> velocity=< ?(-?[0-9]*),  ?(-?[0-9]*)>")
+            .unwrap();
     let input = std::fs::read_to_string("input/d10input.txt").unwrap();
     let input = input.split("\n");
     let mut max_x = 0;
@@ -81,15 +82,18 @@ fn main() {
             }
         }
     }
-    'outer:
-    loop {
+    'outer: loop {
         for i in 0..lights.len() {
             let l = &mut lights[i];
             l.position.x += l.velocity.x;
             l.position.y += l.velocity.y;
-            if l.position.x < min_x || l.position.x > max_x || l.position.y < min_y || l.position.y > max_y {
+            if l.position.x < min_x
+                || l.position.x > max_x
+                || l.position.y < min_y
+                || l.position.y > max_y
+            {
                 break 'outer;
-            }                
+            }
         }
         dump(&mut lights, min_x, max_x, min_y, max_y);
     }

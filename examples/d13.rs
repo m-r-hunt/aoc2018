@@ -176,28 +176,31 @@ fn main() {
                     }
                 }
             }
-            
+
             for c in 0..carts.len() {
-                if (c as isize) != cc  && carts[c].x == carts[cc as usize].x && carts[c as usize].y == carts[cc as usize].y {
+                if (c as isize) != cc
+                    && carts[c].x == carts[cc as usize].x
+                    && carts[c as usize].y == carts[cc as usize].y
+                {
                     if !dumped_first {
                         println!("Part 1: {},{}", carts[c as usize].x, carts[c as usize].y);
                         dumped_first = true;
                     }
                     carts.remove(c as usize);
                     if (c as isize) <= cc {
-                        cc-=1;
+                        cc -= 1;
                     }
                     carts.remove(cc as usize);
-                    cc-=1;
+                    cc -= 1;
                     break;
                 }
             }
-            
+
             cc += 1;
         }
-            if carts.len() == 1 {
-                println!("Part 2: {},{}", carts[0].x, carts[0].y);
-                break;
-            }
+        if carts.len() == 1 {
+            println!("Part 2: {},{}", carts[0].x, carts[0].y);
+            break;
+        }
     }
 }
