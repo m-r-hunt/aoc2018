@@ -19,6 +19,7 @@ fn main() {
                 '.' => Tile::Empty,
                 '|' => Tile::Trees,
                 '#' => Tile::Yard,
+                '\r' => continue,
                 _ => panic!("Unknown char"),
             });
         }
@@ -28,7 +29,7 @@ fn main() {
 
     let mut g = 0;
     let mut last_g = None;
-    for n in 0..1001 {
+    for _n in 0..1001 {
         let mut next_grid = grid.clone();
         for y in 0..grid.len() {
             for x in 0..grid.len() {
@@ -78,10 +79,50 @@ fn main() {
 
     let last_g = last_g.unwrap();
     let period = g - last_g;
-    println!("{}", period);
     let target = 1000000000 % period;
-    while g % period != target {}
-    println!("Part 2: {}", past_counts.get(&g).unwrap());
+    let mut result = 0;
+    while g % period != target {
+        let mut next_grid = grid.clone();
+        for y in 0..grid.len() {
+            for x in 0..grid.len() {
+                let (trees, yards) = count_neighbours(&grid, x as i32, y as i32);
+                next_grid[y][x] = match grid[y][x] {
+                    Tile::Empty => {
+                        if trees >= 3 {
+                            Tile::Trees
+                        } else {
+                            Tile::Empty
+                        }
+                    }
+                    Tile::Trees => {
+                        if yards >= 3 {
+                            Tile::Yard
+                        } else {
+                            Tile::Trees
+                        }
+                    }
+                    Tile::Yard => {
+                        if trees >= 1 && yards >= 1 {
+                            Tile::Yard
+                        } else {
+                            Tile::Empty
+                        }
+                    }
+                }
+            }
+        }
+        grid = next_grid;
+        g += 1;
+
+        let trees = grid.iter().fold(0, |acc, v| {
+            acc + v.iter().filter(|a| **a == Tile::Trees).count()
+        });
+        let yards = grid.iter().fold(0, |acc, v| {
+            acc + v.iter().filter(|a| **a == Tile::Yard).count()
+        });
+        result = trees * yards;
+    }
+    println!("Part 2: {}", result);
 }
 
 fn count_neighbours(grid: &Vec<Vec<Tile>>, x: i32, y: i32) -> (i32, i32) {
