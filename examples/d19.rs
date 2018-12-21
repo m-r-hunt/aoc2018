@@ -47,42 +47,22 @@ fn main() {
     }
 
     let mut regs: [i32; 6] = [0; 6];
-    regs[0] = 1;
+    regs[0] = 0;
     let ipr = 3;
-    let mut count = 0;
     while (regs[ipr] as usize) < program.len() {
         let instr = program[regs[ipr] as usize];
-        println!("{:?} -> {:?}", regs, instr);
         regs = (instr.op)(regs, instr.a, instr.b, instr.c);
         regs[ipr] += 1;
-        count += 1;
-        if count > 100 {
-            break;
-        }
     }
     println!("Part 1: {}", regs[0]);
 
-    let mut r0 = 0;
-    let r4 = 10551389;
-    let mut r5 = 1;
-    'l2: loop {
-        let mut r2 = 1;
-        'l3: loop {
-            if r5 * r2 == r4 {
-                r0 += r5
-            }
-            r2 += 1;
-            if r2 > r4 {
-                r5 += 1;
-                if r5 > r4 {
-                    break 'l2;
-                } else {
-                    continue 'l2;
-                }
-            }
+    let mut total = 0;
+    for f in 1..=10551389 {
+        if 10551389 % f == 0 {
+            total += f;
         }
     }
-    println!("{}", r0);
+    println!("Part 2: {}", total);
 }
 
 fn addr(mut regs: [i32; 6], a: i32, b: i32, c: i32) -> [i32; 6] {
