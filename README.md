@@ -13,7 +13,7 @@ Status:
 * d1: Nail✅
 * d2: Nail✅
 * d3: Nail✅
-* d4: Need to redo❌
+* d4: Nail✅
 * d5: Nail✅
 * d6: Nail✅
 * d7: Nail✅
@@ -26,3 +26,8 @@ Status:
 * d14: Nail (Part 2 is slow)⚠️
 * d15: Rust✅
 * d16: Rust✅
+* d17: Rust✅
+* d18: Rust✅
+* d19: Rust✅
+* d20: Rust✅
+* d21: Rust✅
