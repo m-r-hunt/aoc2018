@@ -6,3 +6,5 @@ edition = "2018"
 
 [dependencies]
 regex = "1"
+scan-rules = "0.2.0"
+rand = "0.6.1"
