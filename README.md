@@ -31,3 +31,5 @@ Status:
 * d19: Rust✅
 * d20: Rust✅
 * d21: Rust✅
+* d22: Rust✅
+* d23: Rust (Part 1 only, need to redo Part 2)⚠️
